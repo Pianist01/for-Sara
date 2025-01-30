@@ -61,6 +61,7 @@ body {
 
 .container {
     height: 40%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: repeat(3, 1fr);
@@ -78,14 +79,14 @@ p {
     color: white;
     justify-self: center;
     align-self: center;
-    display: none;
-    transition: display 2s ease-in-out;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
 button {
     grid-column: 1/2;
     grid-row: 3/4;
-    width: 80%;
+    width: 18%;
     height: 30%;
     justify-self: center;
     color: white;
