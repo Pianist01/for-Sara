@@ -7,49 +7,53 @@ const container = document.querySelector('.container');
 const phraseOne = document.querySelector('p');
 
 let index = 0;
-let opacity;
-const opacityEnd = 100;
-const baseOpacity = 0;
+let secondsPassed = 0;
+let opacity = 0;
+let baseOpacity = 1;
+let opacityEnd = 0;
 
-const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me imagino que mirando la fecha, sabes que esta pronto de venir', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Perdon si es un poco nErRdY para ti amor, jajaja', 'Te amo my love', 'Cuando estes lista, presiona el boton'];
+const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me imagino que mirando la fecha, sabes que esta pronto de venir', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Perdon si es un poco nErRdY para ti amor, jajaja', 'Te amo my love', 'Cuando estes lista, presiona el boton :)'];
+
+// let isHidden = true;
 
 
-window.onload = function() {
+let startUp = function() {
     let newSentence = setInterval(() => {
         index = (index + 1) % phraseArray.length;
         phraseOne.textContent = phraseArray[index];
-        showUp();
         console.log(phraseOne);
         container.append(phraseOne);
-    }, 10000);
+    }, 8000);
 
-    setTimeout(() => {
-    clearInterval(newSentence);
-}, 100000);
+//     setTimeout(() => {
+//     clearInterval(newSentence);
+// }, 60000);
 }
 
-function showUp() {
-    opacity = 0;
-    opacityEnd;
+startUp();
 
-    const animateShow = () => {
-        opacity += 3;
+setInterval(() => {
+    opacity += .25;
+    let showUp = () => {
+        phraseOne.style.opacity = opacity;
+    if(opacity < baseOpacity) {
+        requestAnimationFrame(showUp);
+    }
+    showUp();
+    }
+}, 8000);
 
-        phraseOne.style.opacity = opacity + '%';
-        if(opacity < opacityEnd) {
-            requestAnimationFrame(animateShow);
+setInterval(() => {
+    opacity -= .25;
+    let goAway = () => {
+        phraseOne.style.opacity = opacity;
+        if(opacity > opacityEnd) {
+            requestAnimationFrame(goAway);
         }
     }
-    animateShow();
+}, 14000);
 
-    let goAway = setInterval(() => {
-        const animateAway = () => {
-            opacity -= 3;
-            phraseOne.style.opacity = opacity + '%';
-            if(opacity > baseOpacity) {
-                requestAnimationFrame(animateAway);
-            }
-        }
-        animateAway();
-    }, 8000);
-}
+setInterval(() => {
+    secondsPassed++;
+    console.log(`${secondsPassed}`);
+}, 1000);
