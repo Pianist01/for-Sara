@@ -52,7 +52,9 @@ p, h1, h2, h3, h4, h5, h6 {
 body {
   background-color: black;
   transition: background-color 2s ease-in-out;
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
   justify-content: center;
   align-items: center;
   height: 100vh;
@@ -60,7 +62,9 @@ body {
 }
 
 .container {
-  height: 40%;
+  grid-column: 1/2;
+  grid-row: 2/3;
+  height: 100%;
   width: 100%;
   display: grid;
   grid-template-columns: 1fr;
@@ -75,12 +79,21 @@ h1 {
   align-self: end;
 }
 
+h2 {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-self: start;
+  justify-self: center;
+  opacity: 0;
+  transition: opacity 1s linear;
+}
+
 p {
   color: white;
   justify-self: center;
   align-self: center;
-  opacity: 0;
-  transition: opacity 1s ease-in-out;
+  /* opacity: 0;
+  transition: opacity 1s ease-in-out; */
 }
 
 button {
