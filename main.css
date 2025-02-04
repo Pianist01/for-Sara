@@ -106,4 +106,8 @@ button {
   background: none;
   border: 2px solid white;
   border-radius: 12%;
+  box-shadow: 1px 1px 10px 1px white;
+  opacity: 100;
+  display: block;
+  transition: opacity 2s linear;
 }

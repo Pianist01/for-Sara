@@ -6,6 +6,8 @@ const container = document.querySelector('.container');
 
 const phraseOne = document.querySelector('p');
 
+const button = document.querySelector('button');
+
 let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
@@ -18,6 +20,8 @@ const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me i
 
 // let isHidden = true;
 
+button.disabled = true;
+
 
 let startUp = function() {
     let newSentence = setInterval(() => {
@@ -29,8 +33,19 @@ let startUp = function() {
 
     setTimeout(() => {
     clearInterval(newSentence);
+    button.disabled = false;
+    console.log('Time is up');
 }, 88000);
 }
+
+button.addEventListener('click', (e) => {
+    console.log('It Works');
+    body.style.backgroundColor = 'pink';
+    button.style.opacity = '0';
+    setInterval(() => {
+        button.style.display = 'none';
+    }, 3000);
+});
 
 startUp();
 
@@ -58,16 +73,3 @@ setInterval(() => {
     secondsPassed++;
     console.log(`${secondsPassed}`);
 }, 1000);
-
-let remind = setInterval(() => {
-    const reminder = document.createElement('h2');
-    reminder.textContent = 'Sube tu volumne amor :)';
-    reminder.style.color = 'white';
-    reminder.style.opacity = '100';
-    body.append(reminder);
-    console.log('Pon Tu volumne para arriba amor :)');
-}, 5000);
-
-setTimeout(() => {
-    clearInterval(remind);
-}, 9000);
