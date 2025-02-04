@@ -50,8 +50,9 @@ p, h1, h2, h3, h4, h5, h6 {
 /* RESET END */
 
 body {
-  background-color: black;
-  transition: background-color 2s ease-in-out;
+  /* background: rgb(0, 0, 0);
+  opacity: 100;
+  transition: opacity 1s ease-in-out; */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(3, 1fr);
@@ -77,6 +78,8 @@ h1 {
   grid-row: 1/2;
   justify-self: center;
   align-self: end;
+  opacity: 100;
+  transition: opacity 1s linear;
 }
 
 h2 {
@@ -106,4 +109,6 @@ button {
   background: none;
   border: 2px solid white;
   border-radius: 12%;
+  opacity: 100;
+  transition: opacity 1s linear;
 }
