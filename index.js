@@ -18,22 +18,14 @@ const duration = 4000;
 const interval = 16;
 const step = interval / duration;
 
-<<<<<<< HEAD
-=======
 let boxShadowSize = 5;
 let growing = true;
 
->>>>>>> fafe18f3cc903cf23cfeb53d12b783656931b4f3
 const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me imagino que mirando la fecha, sabes que esta pronto de venir', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Perdon si es un poco nErRdY para ti amor, jajaja', 'Te amo my love', 'Cuando estes lista, presiona el boton :)'];
 
 button.disabled = true;
 
-<<<<<<< HEAD
-
-button.disabled = true;
-=======
 body.style.background = `rgb(0, 0, 0)`;
->>>>>>> fafe18f3cc903cf23cfeb53d12b783656931b4f3
 
 
 let startUp = function() {
@@ -103,30 +95,23 @@ button.addEventListener('click', (e) => {
     body.style.backgroundColor = '#ffb6c1';
     button.style.opacity = '0';
     title.style.opacity = '0';
-<<<<<<< HEAD
-    container.style.display = 'none';
-=======
     phraseOne.style.display = 'none';
     phraseOne.remove();
->>>>>>> fafe18f3cc903cf23cfeb53d12b783656931b4f3
     askQuestion();
     setInterval(() => {
         button.style.display = 'none';
     }, 2000);
 });
 
-<<<<<<< HEAD
-function askQuestion() {
-    phraseOne.textContent = 'Amor quieres hacer mi valentine?'
-    phraseOne.style.opacity = '100';
-    // const question = document.createElement('p');
-    // question.textContent = 'Amor quieres hacer mi valentine?';
-    // question.style.opacity = '100';
-    // question.classList.add('question');
-    // body.append(question);
-}
-=======
 const nextPageArray = ['QUEEEEE PORQUE ESCOJISTE NO???!!!!', 'NO ME QUIERES???', 'OK, YA HICISTE TU DESICION!!!!!', 'BYE!!!'];
+
+let changing = true;
+let a;
+let b;
+let c;
+let d;
+let e;
+let f;
 
 function askQuestion() {
     let opacity = 0;
@@ -164,13 +149,7 @@ function askQuestion() {
         console.log('This button works');
         container.style.gridTemplateRows = 'repeat(3, 1fr)';
         body.style.background = '#ff000d';
-        setInterval(() => {
-           body.style.background = '#8b0000'; 
-        }, 2000);
-
-        setInterval(() => {
-            body.style.background = '#ff000d';
-        }, 3000);
+        setInterval(changeColor, interval);
         question.textContent = '';
         question.style.fontSize = '20px';
         question.style.fontWeight = 'bolder';
@@ -188,4 +167,28 @@ function askQuestion() {
         // }, 11500);
     });
 }
->>>>>>> fafe18f3cc903cf23cfeb53d12b783656931b4f3
+
+function changeColor() {
+    if(growing) {
+        a = 8;
+        b = 'b'
+        c = 0;
+        d = 0;
+        e = 0;
+        f = 0;
+        if(a == 8 && b == 'b' && c == 0 && d == 0 && e == 0 && f == 0) {
+            growing = false;
+        }
+    } else {
+        a = 'f';
+        b = 'f';
+        c = 0;
+        d = 0;
+        e = 0;
+        f = 'd';
+        if(a == 'f' && b == 'f' && c == 0 && d == 0 && e == 0 && f == 'd') {
+            growing = true;
+        }
+    }
+    body.style.background = `#${a}${b}${c}${d}${e}${f}`;
+}

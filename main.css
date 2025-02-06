@@ -50,12 +50,7 @@ p, h1, h2, h3, h4, h5, h6 {
 /* RESET END */
 
 body {
-<<<<<<< HEAD
-  background-color:  rgb(0, 0, 0);
-  opacity: 100;
-=======
   background-color: rgb(0, 0, 0);
->>>>>>> fafe18f3cc903cf23cfeb53d12b783656931b4f3
   transition: background-color 1s ease-in-out;
   display: grid;
   grid-template-columns: 1fr;
@@ -114,9 +109,6 @@ h2 {
   border: 2px solid white;
   border-radius: 12%;
   opacity: 100;
-<<<<<<< HEAD
-  transition: opacity 1s linear;
-=======
   box-shadow: 0px 0px 5px 0px;
   transition: opacity 1s linear, box-shadow 1s linear;
 }
@@ -163,7 +155,6 @@ h2 {
   border-radius: 12%;
   color: white;
   margin-top: 5%;
->>>>>>> fafe18f3cc903cf23cfeb53d12b783656931b4f3
 }
 
 /* SECOND PAGE CONTENT */
