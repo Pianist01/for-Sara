@@ -8,11 +8,8 @@ const phraseOne = document.querySelector('p');
 
 const button = document.querySelector('button');
 
-<<<<<<< HEAD
-=======
 const title = document.querySelector('h1');
 
->>>>>>> d50a55a581250c0b936e1ce5634fdacffeae1db7
 let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
@@ -21,15 +18,10 @@ const duration = 4000;
 const interval = 16;
 const step = interval / duration;
 
-let r = 0;
-let g = 0;
-let b = 0;
-
 const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me imagino que mirando la fecha, sabes que esta pronto de venir', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Perdon si es un poco nErRdY para ti amor, jajaja', 'Te amo my love', 'Cuando estes lista, presiona el boton :)'];
 
 button.disabled = true;
 
-body.style.background = `rgb(${r}, ${g}, ${b})`;
 
 button.disabled = true;
 
@@ -83,28 +75,26 @@ setInterval(fadeEffect, interval);
 setInterval(() => {
     secondsPassed++;
     console.log(`${secondsPassed}`);
-<<<<<<< HEAD
-}, 1000);
-=======
 }, 1000);
 
 button.addEventListener('click', (e) => {
     e.preventDefault();
-    body.style.opacity = '0';
-    
+    body.style.backgroundColor = '#ffb6c1';
     button.style.opacity = '0';
     title.style.opacity = '0';
+    container.style.display = 'none';
+    askQuestion();
     setInterval(() => {
         button.style.display = 'none';
     }, 2000);
 });
 
-function changeBackground() {
-    r += 1;
-    g += 1;
-    b += 1;
-    if(r && g && b <= 0) {
-        
-    }
+function askQuestion() {
+    phraseOne.textContent = 'Amor quieres hacer mi valentine?'
+    phraseOne.style.opacity = '100';
+    // const question = document.createElement('p');
+    // question.textContent = 'Amor quieres hacer mi valentine?';
+    // question.style.opacity = '100';
+    // question.classList.add('question');
+    // body.append(question);
 }
->>>>>>> d50a55a581250c0b936e1ce5634fdacffeae1db7
