@@ -103,7 +103,7 @@ button.addEventListener('click', (e) => {
     }, 2000);
 });
 
-const nextPageArray = ['QUEEEEE PORQUE ESCOJISTE NO???!!!!', 'NO ME QUIERES???', 'AHORA NO HAY REGRESO DE AQUI EN ADELANTE!!!!!', 'BYE!!!'];
+const nextPageArray = ['QUEEEEE PORQUE ESCOJISTE NO???!!!!', 'NO ME QUIERES???', 'OK, YA HICISTE TU DESICION!!!!!', 'BYE!!!'];
 
 function askQuestion() {
     let opacity = 0;
@@ -139,15 +139,29 @@ function askQuestion() {
     no.addEventListener('click', (e) => {
         e.preventDefault();
         console.log('This button works');
-        body.style.background = 'red';
+        container.style.gridTemplateRows = 'repeat(3, 1fr)';
+        body.style.background = '#ff000d';
+        setInterval(() => {
+           body.style.background = '#8b0000'; 
+        }, 2000);
+
+        setInterval(() => {
+            body.style.background = '#ff000d';
+        }, 3000);
         question.textContent = '';
+        question.style.fontSize = '20px';
+        question.style.fontWeight = 'bolder';
+       
+        setTimeout(() => {
+            question.textContent = nextPageArray[0];
+        }, 25)
         setInterval(() => {
             index = (index + 1) % nextPageArray.length;
             question.textContent = nextPageArray[index];
         }, 3000)
 
-        setTimeout(() => {
-            window.close();
-        }, 12000);
+        // setTimeout(() => {
+        //     window.close();
+        // }, 11500);
     });
 }
