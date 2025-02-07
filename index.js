@@ -172,19 +172,22 @@ function askQuestion() {
     });
 }
 
-const yesArray = ['', 'Mi valentine :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
+const yesArray = ['Hola :)', 'Mi valentine :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
 
 function displayVideo() {
+    let maxOpacity = 100;
+
     const videoOverlay = document.createElement('video');
     videoOverlay.classList.add('video-box');
     videoOverlay.style.width = '100%';
-    videoOverlay.style.height = '100%';
+    videoOverlay.style.height = '100vh';
     videoOverlay.autoplay = true;
     videoOverlay.muted = true;
     videoOverlay.loop = true;
     videoOverlay.playsInline = true;
 
     const source = document.createElement('source');
+    source.classList.add('video-source');
     source.src = '/videos/flowervid.mp4';
     source.type = 'video/mp4';
     videoOverlay.append(source);
@@ -219,6 +222,28 @@ function displayVideo() {
 
         index = (index + 1) % yesArray.length;
     }
-    setInterval(changeText, 4000);
+    let textInterval = setInterval(changeText, 4000);
 
+    setTimeout(() => {
+        clearInterval(textInterval);
+    }, 24000)
+
+    setTimeout(() => {
+        const nextButton = document.createElement('button');
+        nextButton.classList.add('next-button');
+        nextButton.textContent = 'Presioname :)';
+        const fadeIn = () => {
+            if(opacity < maxOpacity) {
+                opacity += 3;
+                nextButton.style.opacity = opacity + '%';
+                requestAnimationFrame(fadeIn);
+            }
+        }
+        fadeIn();
+        body.append(nextButton);
+        nextButton.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.location.href = 'activities.html';
+        });
+    }, 24000)
 }
