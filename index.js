@@ -92,7 +92,7 @@ setInterval(() => {
 
 button.addEventListener('click', (e) => {
     e.preventDefault();
-    body.style.backgroundColor = '#ffb6c1';
+    body.style.backgroundColor = 'rgb(255, 182, 193)';
     button.style.opacity = '0';
     title.style.opacity = '0';
     phraseOne.style.display = 'none';
@@ -104,14 +104,6 @@ button.addEventListener('click', (e) => {
 });
 
 const nextPageArray = ['QUEEEEE PORQUE ESCOJISTE NO???!!!!', 'NO ME QUIERES???', 'OK, YA HICISTE TU DESICION!!!!!', 'BYE!!!'];
-
-let changing = true;
-let a;
-let b;
-let c;
-let d;
-let e;
-let f;
 
 function askQuestion() {
     let opacity = 0;
@@ -149,7 +141,6 @@ function askQuestion() {
         console.log('This button works');
         container.style.gridTemplateRows = 'repeat(3, 1fr)';
         body.style.background = '#ff000d';
-        setInterval(changeColor, interval);
         question.textContent = '';
         question.style.fontSize = '20px';
         question.style.fontWeight = 'bolder';
@@ -162,33 +153,26 @@ function askQuestion() {
             question.textContent = nextPageArray[index];
         }, 3000)
 
-        // setTimeout(() => {
-        //     window.close();
-        // }, 11500);
+        setTimeout(() => {
+            window.close();
+        }, 11500);
+    });
+
+    yes.addEventListener('click', (e) => {
+        e.preventDefault();
+        no.style.opacity = '0';
+        yes.style.opacity = '0';
+        question.style.opacity = '0';
+        setTimeout(() => {
+            no.style.display = 'none';
+            yes.style.display = 'none';
+        }, 3000)
     });
 }
 
-function changeColor() {
-    if(growing) {
-        a = 8;
-        b = 'b'
-        c = 0;
-        d = 0;
-        e = 0;
-        f = 0;
-        if(a == 8 && b == 'b' && c == 0 && d == 0 && e == 0 && f == 0) {
-            growing = false;
-        }
-    } else {
-        a = 'f';
-        b = 'f';
-        c = 0;
-        d = 0;
-        e = 0;
-        f = 'd';
-        if(a == 'f' && b == 'f' && c == 0 && d == 0 && e == 0 && f == 'd') {
-            growing = true;
-        }
-    }
-    body.style.background = `#${a}${b}${c}${d}${e}${f}`;
+function displayImage() {
+    const imageOverlay = document.createElement('div');
+    imageOverlay.style.width = '100%';
+    imageOverlay.style.height = '100%';
+    imageOverlay.style.backgroundImage = 
 }
