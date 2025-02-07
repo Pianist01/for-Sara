@@ -14,7 +14,7 @@ let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
 let increasing = true;
-const duration = 4000;
+let duration = 4000;
 const interval = 16;
 const step = interval / duration;
 
@@ -151,7 +151,7 @@ function askQuestion() {
         setInterval(() => {
             index = (index + 1) % nextPageArray.length;
             question.textContent = nextPageArray[index];
-        }, 3000)
+        }, 4000)
 
         setTimeout(() => {
             window.close();
@@ -163,16 +163,62 @@ function askQuestion() {
         no.style.opacity = '0';
         yes.style.opacity = '0';
         question.style.opacity = '0';
+        body.style.gridTemplateRows = 'repeat(3, 1fr)';
         setTimeout(() => {
             no.style.display = 'none';
             yes.style.display = 'none';
         }, 3000)
+        displayVideo();
     });
 }
 
-function displayImage() {
-    const imageOverlay = document.createElement('div');
-    imageOverlay.style.width = '100%';
-    imageOverlay.style.height = '100%';
-    imageOverlay.style.backgroundImage = 
+const yesArray = ['', 'Mi valentine :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
+
+function displayVideo() {
+    const videoOverlay = document.createElement('video');
+    videoOverlay.classList.add('video-box');
+    videoOverlay.style.width = '100%';
+    videoOverlay.style.height = '100%';
+    videoOverlay.autoplay = true;
+    videoOverlay.muted = true;
+    videoOverlay.loop = true;
+    videoOverlay.playsInline = true;
+
+    const source = document.createElement('source');
+    source.src = '/videos/flowervid.mp4';
+    source.type = 'video/mp4';
+    videoOverlay.append(source);
+
+    // body.style.opacity = '0';
+
+    setTimeout(() => {
+        container.remove();
+        body.append(videoOverlay);
+        body.style.opacity = '100';
+    }, 1000);
+
+    const textContainer = document.createElement('div');
+    textContainer.classList.add('text-container');
+
+    const yesText = document.createElement('p');
+    yesText.classList.add('yes-text');
+    textContainer.append(yesText);
+
+    function changeText() {
+
+        yesText.textContent = yesArray[index];
+
+        body.append(textContainer);
+        setTimeout(() => {
+            yesText.style.opacity = '100';
+        }, 10);
+    
+        setTimeout(() => {
+            yesText.style.opacity = '0';
+        }, 2000);
+
+        index = (index + 1) % yesArray.length;
+    }
+    setInterval(changeText, 4000);
+
 }
