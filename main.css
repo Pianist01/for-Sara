@@ -156,15 +156,3 @@ h2 {
   color: white;
   margin-top: 5%;
 }
-
-/* SECOND PAGE CONTENT */
-
-.question {
-  opacity: 0;
-  transition: opacity 5s linear;
-  color: white;
-  grid-column: 1/2;
-  grid-row: 1/2;
-  align-self: center;
-  justify-self: center;
-}
