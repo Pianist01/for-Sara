@@ -59,6 +59,22 @@ main {
     grid-template-rows: repeat(3, 1fr);
 }
 
+@keyframes goUp {
+  from {
+    transform: translateY(100px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+div {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: goUp 2s 1;
+}
+
 h1 {
     grid-column: 1/2;
     grid-row: 1/2;
