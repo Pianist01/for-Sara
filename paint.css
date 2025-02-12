@@ -58,14 +58,16 @@ body {
 
 main {
   height: 100%;
+  grid-row: 2/4;
 }
 
-.header-container {
+.head-container {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  grid-row: 1/2;
 }
 
 .painting {
@@ -96,6 +98,15 @@ h1 {
   opacity: 0;
   transition: opacity 1s linear;
   object-fit: cover;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, .25fr);
+}
+
+.info-two {
+  background: linear-gradient(0deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
+  opacity: 0;
+  transition: opacity 1s linear;
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(2, 1fr);
@@ -132,4 +143,29 @@ h1 {
   to {
     transform: translateY(0px);
   }
+}
+
+.info-text3 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.info-text4 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 3rem;
 }
