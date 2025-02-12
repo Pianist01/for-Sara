@@ -49,6 +49,87 @@
   
   /* RESET END */
 
+body {
+  height: 3000px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+main {
+  height: 100%;
+}
+
+.header-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .painting {
-    height: 100%;
+  height: 100%;
+}
+
+h1 {
+  position: absolute;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: showUp 2s 1;
+  text-decoration: none;
+}
+
+@keyframes showUp {
+  from {
+    transform: translateY(100px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
+}
+
+.info-one {
+  background: linear-gradient(179.4deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
+  opacity: 0;
+  transition: opacity 1s linear;
+  object-fit: cover;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+}
+
+.info-text1 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  grid-row: 1/2;
+}
+
+.info-text2 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+@keyframes textAppear {
+  from {
+    transform: translateY(100px);
+  }
+
+  to {
+    transform: translateY(0px);
+  }
 }
