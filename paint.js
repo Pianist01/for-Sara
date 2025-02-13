@@ -7,12 +7,12 @@ contentContainerOne.classList.add('info-one');
 
 window.onload = function() {
     title.style.opacity = '100';
-    contentContainerOne.style.gridRow = '2/4';
+    contentContainerOne.style.gridRow = '2/13';
     contentContainerOne.style.height = '100%';
     mainContainer.append(contentContainerOne);
 }
 
-const txtArray = ['', 'Para este plan, tenemos desayuno, una actividad, y cena', 'No hay horario en cuando tenemos que hacer todo, menos la actividad', 'Para empezar, te voy a ensenar en donde vamos a desayunar para esta cita', 'Desayuno'];
+const txtArray = ['', 'Para este plan, tenemos desayuno, una actividad, y cena', 'No hay horario en cuando tenemos que hacer todo, menos la actividad', 'Para empezar, te voy a ensenar en donde vamos a desayunar para esta cita', 'Desayuno', 'Chuponcito'];
 
 let index = 0;
 // index = (index + 1) % txtArray.length;
@@ -20,7 +20,9 @@ let infoText;
 let textNumber = 0;
 
 let lastScroll = 0;
-let triggerPoint = 500;
+let triggerPoint = 700;
+let opacity = 0;
+let maxOpacity = 100;
 window.addEventListener('scroll', function() {
     if(window.scrollY >= lastScroll + triggerPoint) {
         lastScroll += triggerPoint;
@@ -31,5 +33,16 @@ window.addEventListener('scroll', function() {
         contentContainerOne.style.opacity = '100';
         contentContainerOne.append(infoText);
         console.log(infoText);
+        if(window.scrollY >= 3500) {
+            const foodContainer = document.createElement('div');
+            foodContainer.classList.add('food-box');
+            foodContainer.style.opacity = '100';
+            foodContainer.style.visibility = 'visible';
+            const foodImage = document.createElement('img');
+            foodImage.classList.add('food');
+            foodImage.src = 'img/dateonefood.jpg';
+            foodContainer.append(foodImage);
+            contentContainerOne.append(foodContainer);
+        }
     }
 });
