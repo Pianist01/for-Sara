@@ -4,160 +4,170 @@
   1. Use a more-intuitive box-sizing model.
 */
 *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
-    2. Remove default margin
-  */
-  * {
-    margin: 0;
-  }
-  /*
-    Typographic tweaks!
-    3. Add accessible line-height
-    4. Improve text rendering
-  */
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  /*
-    5. Improve media defaults
-  */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
-    6. Remove built-in form typography styles
-  */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
-    7. Avoid text overflows
-  */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  /*
-    8. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
-  
-  /* RESET END */
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* RESET END */
 
 body {
-  height: 3000px;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
+height: 10000px;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(8, .10fr);
 }
 
 main {
-  height: 100%;
-  grid-row: 2/4;
+height: 100%;
+grid-row: 2/16;
 }
 
 .head-container {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-row: 1/2;
+width: 100%;
+height: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+grid-row: 1/2;
 }
 
 .painting {
-  height: 100%;
+height: 100%;
 }
 
 h1 {
-  position: absolute;
-  color: white;
-  opacity: 0;
-  transition: opacity 1s linear;
-  animation: showUp 2s 1;
-  text-decoration: none;
+position: absolute;
+color: white;
+opacity: 0;
+transition: opacity 1s linear;
+animation: showUp 2s 1;
+text-decoration: none;
 }
 
 @keyframes showUp {
-  from {
-    transform: translateY(100px);
-  }
+from {
+  transform: translateY(100px);
+}
 
-  to {
-    transform: translateY(0px);
-  }
+to {
+  transform: translateY(0px);
+}
 }
 
 .info-one {
-  background: linear-gradient(179.4deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
-  opacity: 0;
-  transition: opacity 1s linear;
-  object-fit: cover;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, .25fr);
-}
-
-.info-two {
-  background: linear-gradient(0deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
-  opacity: 0;
-  transition: opacity 1s linear;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(2, 1fr);
+background: linear-gradient(179.4deg, rgb(253, 240, 233) 2.2%, rgb(255, 194, 203) 96.2%);
+opacity: 0;
+transition: opacity 1s linear;
+object-fit: cover;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(8, .08fr);
 }
 
 .info-text1 {
-  opacity: 0;
-  transition: opacity 1s linear;
-  animation: textAppear 1s 1;
-  align-self: center;
-  justify-self: center;
-  color: #429e9d;
-  grid-row: 1/2;
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: #429e9d;
+grid-row: 1/2;
+grid-column: 1/2;
 }
 
 .info-text2 {
-  opacity: 0;
-  transition: opacity 1s linear;
-  animation: textAppear 1s 1;
-  align-self: center;
-  justify-self: center;
-  color: #429e9d;
-  grid-row: 2/3;
-  display: flex;
-  align-items: center;
-  text-align: center;
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: #429e9d;
+grid-row: 2/3;
+display: flex;
+align-items: center;
+text-align: center;
+grid-column: 1/2;
 }
 
 @keyframes textAppear {
-  from {
-    transform: translateY(100px);
-  }
+from {
+  transform: translateY(100px);
+}
 
-  to {
-    transform: translateY(0px);
-  }
+to {
+  transform: translateY(0px);
+}
 }
 
 .info-text3 {
-  opacity: 0;
-  transition: opacity 1s linear;
-  animation: textAppear 1s 1;
-  align-self: center;
-  justify-self: center;
-  color: #429e9d;
-  display: flex;
-  align-items: center;
-  text-align: center;
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: #429e9d;
+display: flex;
+align-items: center;
+text-align: center;
+grid-row: 3/4;
+grid-column: 1/2;
 }
 
 .info-text4 {
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: #429e9d;
+display: flex;
+align-items: center;
+text-align: center;
+font-size: 3rem;
+grid-row: 4/5;
+grid-column: 1/2;
+}
+
+.info-text5 {
   opacity: 0;
   transition: opacity 1s linear;
   animation: textAppear 1s 1;
@@ -167,5 +177,24 @@ h1 {
   display: flex;
   align-items: center;
   text-align: center;
-  font-size: 3rem;
+  font-size: 1.5rem;
+  margin-top: 30%;
+  grid-row: 5/6;
+  grid-column: 1/2;
+}
+
+.food-box {
+  visibility: hidden;
+  transition: visibility 5s linear;
+  grid-row: 5/6;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.food {
+  height: 100%;
+  width: 100%;
 }
