@@ -23,6 +23,7 @@ let lastScroll = 0;
 let triggerPoint = 700;
 let opacity = 0;
 let maxOpacity = 100;
+const foodContainer = document.createElement('div');
 window.addEventListener('scroll', function() {
     if(window.scrollY >= lastScroll + triggerPoint) {
         lastScroll += triggerPoint;
@@ -34,18 +35,8 @@ window.addEventListener('scroll', function() {
         contentContainerOne.append(infoText);
         console.log(infoText);
         if(window.scrollY >= 3500) {
-            const foodContainer = document.createElement('div');
+            foodContainer;
             foodContainer.classList.add('food-box');
-            const observer = new IntersectionObserver((entries, observer) => {
-              if(entries[0].isIntersecting) {
-                foodContainer.classList.add('visible');
-                observer.unobserve(foodContainer);
-              }
-            }, {threshold: 0.1, 
-                rootMargin: '-500px'
-            });
-            
-            observer.observe(foodContainer);
 
             const foodImage = document.createElement('img');
             foodImage.classList.add('food');
@@ -55,3 +46,14 @@ window.addEventListener('scroll', function() {
         }
     }
 });
+
+const observer = new IntersectionObserver((entries, observer) => {
+    if(entries[0].isIntersecting) {
+      foodContainer.classList.add('visible');
+      observer.unobserve(foodContainer);
+    }
+  }, {threshold: 0.1, 
+      rootMargin: '200px'
+  });
+  
+  observer.observe(foodContainer);
