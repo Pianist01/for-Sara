@@ -36,8 +36,17 @@ window.addEventListener('scroll', function() {
         if(window.scrollY >= 3500) {
             const foodContainer = document.createElement('div');
             foodContainer.classList.add('food-box');
-            foodContainer.style.opacity = '100';
-            foodContainer.style.visibility = 'visible';
+            const observer = new IntersectionObserver((entries, observer) => {
+              if(entries[0].isIntersecting) {
+                foodContainer.classList.add('visible');
+                observer.unobserve(foodContainer);
+              }
+            }, {threshold: 0.1, 
+                rootMargin: '-500px'
+            });
+            
+            observer.observe(foodContainer);
+
             const foodImage = document.createElement('img');
             foodImage.classList.add('food');
             foodImage.src = 'img/dateonefood.jpg';
