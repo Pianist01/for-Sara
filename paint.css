@@ -252,4 +252,9 @@ grid-column: 1/2;
   opacity: 0;
   transition: opacity 2s linear;
   grid-row: 8/9;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
 }

@@ -188,7 +188,7 @@ function displayVideo() {
 
     const source = document.createElement('source');
     source.classList.add('video-source');
-    source.src = '/videos/flowervid.mp4';
+    source.src = 'videos/flowervid.mp4';
     source.type = 'video/mp4';
     videoOverlay.append(source);
 

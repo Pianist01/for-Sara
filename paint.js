@@ -87,3 +87,17 @@ activityImageBox.classList.add('activity-imgBox');
 const activityImage = document.createElement('img');
 activityImage.src = 'img/massageImage.jpg';
 activityImageBox.append(activityImage);
+
+contentContainerOne.append(activityImageBox);
+
+const activityObserver = new IntersectionObserver((entries, observer) => {
+  if(entries[0].isIntersecting) {
+    activityImageBox.classList.add('visible');
+    observer.disconnect();
+  }
+  }, {
+    rootMargin: '100px',
+    threshold: 0.1
+});
+
+activityObserver.observe(activityImageBox);
