@@ -53,7 +53,7 @@ body {
 height: 10000px;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: repeat(8, .10fr);
+grid-template-rows: repeat(8, .09fr);
 }
 
 main {
@@ -100,7 +100,7 @@ transition: opacity 1s linear;
 object-fit: cover;
 display: grid;
 grid-template-columns: 1fr;
-grid-template-rows: repeat(8, .08fr);
+grid-template-rows: repeat(12, .09fr);
 }
 
 .info-text1 {
@@ -112,6 +112,10 @@ justify-self: center;
 color: #429e9d;
 grid-row: 1/2;
 grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
 }
 
 .info-text2 {
@@ -126,6 +130,10 @@ display: flex;
 align-items: center;
 text-align: center;
 grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
 }
 
 @keyframes textAppear {
@@ -150,6 +158,10 @@ align-items: center;
 text-align: center;
 grid-row: 3/4;
 grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
 }
 
 .info-text4 {
@@ -257,4 +269,160 @@ grid-column: 1/2;
   width: 300px;
   justify-self: center;
   margin-top: 20%;
+<<<<<<< HEAD
+=======
+}
+
+.activity-imgBox.visible {
+  opacity: 1;
+}
+
+.activity-image {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text8 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  grid-row: 8/9;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 1.5rem;
+  margin-top: 30%;
+}
+
+.info-text9 {
+  opacity: 0;
+  transition: opacity 3s linear;
+  animation: textAppear 1s 1;
+  grid-row: 9/10;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.activity-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  margin-top: 60%;
+  grid-row: 9/10;
+  grid-column: 1/2;
+  color: #429e9d;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.activity-link.visible {
+  opacity: 1;
+}
+
+.info-text10 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+  grid-row: 10/11;
+  grid-column: 1/2;
+  color: #429e9d;
+}
+
+.dinner-box {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 11/12;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.dinner-box.visible {
+  opacity: 1;
+}
+
+.dinner-image {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text11 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  grid-row: 11/12;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 1.5rem;
+  margin-top: 30%;
+}
+
+.info-text12 {
+  opacity: 0;
+  transition: opacity 3s linear;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.dinner-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  margin-top: 60%;
+  color: #429e9d;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.dinner-link.visible {
+  opacity: 1;
+}
+
+.return-btn {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  height: 45px;
+  width: 90px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 30%;
+  border-radius: 15px;
+}
+
+.return-btn.visible {
+  opacity: 1;
+>>>>>>> 213b509ee1b7c531316a25175a51411c63ec332c
 }
