@@ -101,8 +101,8 @@ h2 {
 .start {
   grid-column: 1/2;
   grid-row: 3/4;
-  width: 18%;
-  height: 30%;
+  width: 25%;
+  height: 45%;
   justify-self: center;
   color: white;
   background: none;
@@ -173,8 +173,9 @@ h2 {
   z-index: 10;
   grid-row: 2/3;
   grid-column: 1/2;
-  align-self: center;
+  align-self: start;
   display: grid;
+  margin-top: 75%;
 }
 
 .video-box {
@@ -189,7 +190,8 @@ h2 {
   color: white;
   border-radius: 8%;
   justify-self: center;
-  margin-top: 50%;
+  margin-top: 120%;
   z-index: 10;
   position: absolute;
+  margin-left: 33%;
 }

@@ -56,6 +56,11 @@ body {
     grid-template-rows: repeat(8, .09fr);
 }
 
+main {
+  height: 100%;
+  grid-row: 2/16;
+}
+
 .head-container {
     width: 100%;
     height: 100%;
@@ -87,3 +92,56 @@ h1 {
       transform: translateY(0px);
     }
 }
+
+.info-one {
+  background: linear-gradient(109.6deg, rgb(43, 1, 91) 13.4%, rgb(122, 2, 54) 100.2%);
+  opacity: 0;
+  transition: opacity 1s linear;
+  object-fit: cover;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(12, .09fr);
+  }
+
+.info-text1 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.info-text2 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  grid-row: 2/3;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  grid-column: 1/2;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  }
+
+  @keyframes textAppear {
+    from {
+      transform: translateY(100px);
+    }
+    
+    to {
+      transform: translateY(0px);
+    }
+    }

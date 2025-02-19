@@ -14,8 +14,8 @@ let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
 let increasing = true;
-let duration = 4000;
-const interval = 16;
+let duration = 3800;
+const interval = 18;
 const step = interval / duration;
 
 let boxShadowSize = 5;
@@ -23,7 +23,7 @@ let growing = true;
 
 const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me imagino que mirando la fecha, sabes que esta pronto de venir', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Perdon si es un poco nErRdY para ti amor, jajaja', 'Te amo my love', 'Cuando estes lista, presiona el boton :)'];
 
-button.disabled = true;
+button.disabled = false;
 
 body.style.background = `rgb(0, 0, 0)`;
 
@@ -41,6 +41,7 @@ let startUp = function() {
     setTimeout(() => {
     clearInterval(newSentence);
     button.disabled = false;
+    phraseOne.style.display = 'none';
     console.log('Time is up');
 }, 88000);
 }
@@ -172,7 +173,7 @@ function askQuestion() {
     });
 }
 
-const yesArray = ['Hola :)', 'Mi valentine :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
+const yesArray = ['', 'Hola :)', 'Mi valentine :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
 
 function displayVideo() {
     let maxOpacity = 100;

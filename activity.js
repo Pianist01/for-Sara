@@ -15,3 +15,9 @@ buttonOne.addEventListener('click', (e) => {
     e.preventDefault();
     window.location.href = 'paint.html';
 });
+
+const buttonTwo = document.querySelector('.btn-two');
+buttonTwo.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'lights.html';
+});

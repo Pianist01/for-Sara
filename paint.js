@@ -20,7 +20,6 @@ dateOneLink.textContent = 'El menu amor :)';
 contentContainerOne.append(dateOneLink);
 
 let index = 0;
-// index = (index + 1) % txtArray.length;
 let infoText;
 let textNumber = 0;
 
@@ -88,11 +87,6 @@ const activityImage = document.createElement('img');
 activityImage.src = 'img/massageImage.jpg';
 activityImage.classList.add('activity-image')
 activityImageBox.append(activityImage);
-<<<<<<< HEAD
-
-contentContainerOne.append(activityImageBox);
-
-=======
 contentContainerOne.append(activityImageBox);
 
 const activityOneLink = document.createElement('p');
@@ -100,20 +94,11 @@ activityOneLink.classList.add('activity-link');
 activityOneLink.textContent = 'La pagina del masaje para que mires amor :)';
 contentContainerOne.append(activityOneLink);
 
->>>>>>> 213b509ee1b7c531316a25175a51411c63ec332c
 const activityObserver = new IntersectionObserver((entries, observer) => {
   if(entries[0].isIntersecting) {
     activityImageBox.classList.add('visible');
     observer.disconnect();
   }
-<<<<<<< HEAD
-  }, {
-    rootMargin: '100px',
-    threshold: 0.1
-});
-
-activityObserver.observe(activityImageBox);
-=======
 }, {
   threshold: 0.1
 });
@@ -196,4 +181,3 @@ returnButton.addEventListener('click', (e) => {
   e.preventDefault();
   window.location.href = 'activities.html';
 });
->>>>>>> 213b509ee1b7c531316a25175a51411c63ec332c
