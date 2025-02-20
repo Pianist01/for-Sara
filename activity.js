@@ -15,6 +15,7 @@ window.onload = function() {
 const buttonOne = document.querySelector('.btn-one');
 buttonOne.addEventListener('click', (e) => {
     e.preventDefault();
+    localStorage.setItem('playAudio', 'true');
     window.location.href = 'paint.html';
 });
 
