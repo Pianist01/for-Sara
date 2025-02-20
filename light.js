@@ -6,14 +6,15 @@ const contentContainerOne = document.createElement('div');
 contentContainerOne.classList.add('info-one');
 const body = document.querySelector('body');
 
-let audio = new Audio('audio/cityofstars.mp3');
-audio.loop = true;
-
 window.onload = function() {
+  if(localStorage.getItem('playAudio') === 'true') {
+    localStorage.removeItem('playAudio');
+    let audio = document.getElementById('myAudio');
+    audio.play();
+  }
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
-    audio.play();
     mainContainer.append(contentContainerOne);
 }
 
