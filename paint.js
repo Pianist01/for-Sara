@@ -5,11 +5,61 @@ const mainContainer = document.querySelector('main');
 const contentContainerOne = document.createElement('div');
 contentContainerOne.classList.add('info-one');
 
+const body = document.querySelector('body');
+
+const startButton = document.createElement('button');
+startButton.classList.add('activate');
+startButton.textContent = 'Click :)';
+
 window.onload = function() {
+    disableScroll();
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
     mainContainer.append(contentContainerOne);
+    startButton.style.opacity = '100';
+    body.append(startButton);
+}
+
+startButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  startButton.style.opacity = '0';
+  enableScroll();
+  if(localStorage.getItem('playAudio') === 'true') {
+    localStorage.removeItem('playAudio');
+    let audio = document.getElementById('myAudio');
+    audio.play().catch(error => console.log('Autoplay blocked', error));
+  }
+});
+
+function disableScroll() {
+  window.scrollTo(0, 0);
+  body.style.overflow = 'hidden';
+
+  window.addEventListener('scroll', preventScroll);
+  window.addEventListener('wheel', preventScroll, {passive: false});
+  window.addEventListener('touchmove', preventScroll, {passive: false});
+  window.addEventListener('keydown', preventArrowKeys);
+}
+
+function enableScroll() {
+  body.style.overflow = 'auto';
+
+  window.removeEventListener('scroll', preventScroll);
+  window.removeEventListener('wheel', preventScroll);
+  window.removeEventListener('touchmove', preventScroll);
+  window.removeEventListener('keydown', preventArrowKeys);
+}
+
+function preventScroll(event) {
+  event.preventDefault();
+}
+
+function preventArrowKeys(event) {
+  const keys = [37, 38, 39, 40];
+  if(keys.includes(event.keyCode)) {
+    event.preventDefault();
+  }
 }
 
 const dateOneArray = ['', 'Para este plan, tenemos desayuno, una actividad, y cena', 'No hay horario en cuando tenemos que hacer todo, menos la actividad', 'Para empezar, te voy a ensenar en donde vamos a desayunar para esta cita', 'Desayuno', 'Chuponcito', 'El Chuponzito es desayuno Mexicano con cosas como: Chilquiles, Sopes de Desayuno, Omelets, Burritos de Desayuno, Sandwich de Desayuno y mas. Aqui esta el link para que mires:', 'Actividad', 'Seven Falls Massage & Spa', 'Seven Falls Massage & Spa es un lugar donde puedemos agarrar un masaje como pareja. Si esojes este hariamos la de parejas de una hora que incluye masaje del cuerpo. Aqui esta la pagina para que tengas mas informacion del lugar:', 'Cena', 'Buona Forchetta', 'Aqui amor es el lugar donde ibamos ir el Sabado pasado donde teniamos que tener reservacion. Es comida Italiana entonces tienen pasta, lasgana, pizza, etc. Igual, aqui esta el link para que mires el menu completo y tambien las fotos:'];
