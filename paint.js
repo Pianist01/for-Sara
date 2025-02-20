@@ -10,15 +10,15 @@ const body = document.querySelector('body');
 const startButton = document.createElement('button');
 startButton.classList.add('activate');
 startButton.textContent = 'Click :)';
+startButton.style.opacity = '100';
+body.append(startButton);
 
 window.onload = function() {
-    // disableScroll();
+    disableScroll();
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
     mainContainer.append(contentContainerOne);
-    startButton.style.opacity = '100';
-    body.append(startButton);
 }
 
 startButton.addEventListener('click', (e) => {
