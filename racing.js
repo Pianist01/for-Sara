@@ -5,13 +5,6 @@ const mainContainer = document.querySelector('main');
 const contentContainerOne = document.createElement('div');
 contentContainerOne.classList.add('info-one');
 
-window.onload = function() {
-    title.style.opacity = '100';
-    contentContainerOne.style.gridRow = '2/16';
-    contentContainerOne.style.height = '100%';
-    mainContainer.append(contentContainerOne);
-}
-
 const startButton = document.createElement('button');
 startButton.classList.add('activate');
 startButton.textContent = 'Click :)';
