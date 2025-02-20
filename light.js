@@ -4,11 +4,16 @@ const title = document.querySelector('h1');
 const mainContainer = document.querySelector('main');
 const contentContainerOne = document.createElement('div');
 contentContainerOne.classList.add('info-one');
+const body = document.querySelector('body');
+
+let audio = new Audio('audio/cityofstars.mp3');
+audio.loop = true;
 
 window.onload = function() {
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
+    audio.play();
     mainContainer.append(contentContainerOne);
 }
 

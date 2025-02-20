@@ -1,5 +1,7 @@
 console.log('This works');
 
+const body = document.querySelector('body');
+
 const activityOne = document.querySelector('.activity-one');
 const activityTwo = document.querySelector('.activity-two');
 const activityThree = document.querySelector('.activity-three');
@@ -19,6 +21,7 @@ buttonOne.addEventListener('click', (e) => {
 const buttonTwo = document.querySelector('.btn-two');
 buttonTwo.addEventListener('click', (e) => {
     e.preventDefault();
+    localStorage.setItem('playAudio', 'true');
     window.location.href = 'lights.html';
 });
 

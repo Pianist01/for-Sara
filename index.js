@@ -3,29 +3,39 @@ console.log('Script is working');
 const body = document.querySelector('body');
 
 const container = document.querySelector('.container');
+container.style.display = 'none';
 
 const phraseOne = document.querySelector('p');
 
 const button = document.querySelector('button');
 
+const startButton = document.createElement('button');
+startButton.textContent = 'Empezar';
+startButton.classList.add('btn-start');
+body.append(startButton);
+
 const title = document.querySelector('h1');
+
+let audio = new Audio('audio/miaandseb.mp3');
+audio.loop = true;
 
 let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
 let increasing = true;
-let duration = 3900;
-const interval = 120;
+let duration = 4200;
+const interval = 10;
 const step = interval / duration;
 
 let boxShadowSize = 5;
 let growing = true;
 
-const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Me imagino que mirando la fecha, sabes que esta pronto de venir', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Perdon si es un poco nErRdY para ti amor, jajaja', 'Te amo my love', 'Cuando estes lista, presiona el boton :)'];
+const phraseArray = ['', 'Hola mi amor :)', 'Espero que estes bien orita', 'Estoy pensando de ti orita, como siempre', 'Te amo mucho mi amor', 'Este tiempo que hemos tenido juntos han sido unos de mis mas felices', 'Que feliz me haces amor :)', 'Te queria hacer esto porque es mi forma tambien de hacerlo', 'Que tanto te extrano baby', 'Te amo my love', 'Cuando estes lista, presiona el boton :)'];
 
-button.disabled = false;
 
 body.style.background = `rgb(0, 0, 0)`;
+
+button.disabled = true;
 
 
 let startUp = function() {
@@ -34,7 +44,7 @@ let startUp = function() {
         phraseOne.textContent = phraseArray[index];
         console.log(phraseOne);
         container.append(phraseOne);
-    }, 8000);
+    }, 8850);
 
     btnShadow();
 
@@ -46,7 +56,18 @@ let startUp = function() {
 }, 88000);
 }
 
-startUp();
+startButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    setInterval(() => {
+        secondsPassed++;
+        console.log(`${secondsPassed}`);
+    }, 1000);
+    startButton.style.display = 'none';
+    container.style.display = '';
+    container.style.opacity = '100';
+    startUp();
+    audio.play();
+}, {once: true});
 
 function btnShadow() {
     boxShadowSize;
@@ -86,13 +107,9 @@ function fadeEffect() {
 setInterval(fadeEffect, interval);
 
 
-setInterval(() => {
-    secondsPassed++;
-    console.log(`${secondsPassed}`);
-}, 1000);
-
 button.addEventListener('click', (e) => {
     e.preventDefault();
+    audio.pause();
     body.style.backgroundColor = 'rgb(255, 182, 193)';
     button.style.opacity = '0';
     title.style.opacity = '0';
@@ -147,6 +164,13 @@ function askQuestion() {
         question.textContent = '';
         question.style.fontSize = '20px';
         question.style.fontWeight = 'bolder';
+        no.style.opacity = '0';
+        yes.style.opacity = '0';
+
+        setTimeout(() => {
+            no.style.display = 'none';
+            yes.style.display = 'none';
+        }, 1100);
        
         setTimeout(() => {
             question.textContent = nextPageArray[0];
@@ -157,12 +181,21 @@ function askQuestion() {
         }, 4000)
 
         setTimeout(() => {
-            window.close();
+            window.location.replace('about:blank');
+            history.pushState(null, null, '');
+            window.onpopstate = function () {
+                history.pushState(null, null, '');
+                history.go(1);
+            }
         }, 11500);
     });
 
     yes.addEventListener('click', (e) => {
         e.preventDefault();
+        let audio = new Audio('audio/margaret.mp3');
+        audio.loop = true;
+        audio.currentTime = 145;
+        audio.play()
         no.style.opacity = '0';
         yes.style.opacity = '0';
         question.style.opacity = '0';
@@ -175,7 +208,7 @@ function askQuestion() {
     });
 }
 
-const yesArray = ['', 'Hola :)', 'Mi valentine :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
+const yesArray = ['', 'Hola :)', 'Mi amor :), te amo', 'Planee 3 cosas que puedemos hacer', 'Ahora tu vas a escoger cual quieres hacer', 'En cada uno de los planes hay un dia entero', 'Tiene todo los detalles, solo tienes que escoger', 'Sigale a la proxima pagina para comenzar :)'];
 
 function displayVideo() {
     let maxOpacity = 100;
@@ -225,7 +258,7 @@ function displayVideo() {
 
         index = (index + 1) % yesArray.length;
     }
-    let textInterval = setInterval(changeText, 4000);
+    let textInterval = setInterval(changeText, 5000);
 
     setTimeout(() => {
         clearInterval(textInterval);
