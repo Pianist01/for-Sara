@@ -5,12 +5,59 @@ const mainContainer = document.querySelector('main');
 const contentContainerOne = document.createElement('div');
 contentContainerOne.classList.add('info-one');
 const body = document.querySelector('body');
+const startButton = document.createElement('button');
+startButton.classList.add('activate');
+startButton.textContent = 'Click :)';
 
 window.onload = function() {
+    disableScroll();
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
     mainContainer.append(contentContainerOne);
+    startButton.style.opacity = '100';
+    body.append(startButton);
+}
+
+startButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  startButton.style.opacity = '0';
+  enableScroll();
+  if(localStorage.getItem('playAudio') === 'true') {
+    localStorage.removeItem('playAudio');
+    let audio = document.getElementById('myAudio');
+    audio.play().catch(error => console.log('Autoplay blocked', error));
+  }
+});
+
+function disableScroll() {
+  window.scrollTo(0, 0);
+  body.style.overflow = 'hidden';
+
+  window.addEventListener('scroll', preventScroll);
+  window.addEventListener('wheel', preventScroll, {passive: false});
+  window.addEventListener('touchmove', preventScroll, {passive: false});
+  window.addEventListener('keydown', preventArrowKeys);
+}
+
+function enableScroll() {
+  body.style.overflow = 'auto';
+
+  window.removeEventListener('scroll', preventScroll);
+  window.removeEventListener('wheel', preventScroll);
+  window.removeEventListener('touchmove', preventScroll);
+  window.removeEventListener('keydown', preventArrowKeys);
+}
+
+function preventScroll(event) {
+  event.preventDefault();
+}
+
+function preventArrowKeys(event) {
+  const keys = [37, 38, 39, 40];
+  if(keys.includes(event.keyCode)) {
+    event.preventDefault();
+  }
 }
 
 const dateTwoArray = ['', 'Hola amor :), para esta cita igual tenemos desayuno, nuestra actividad, y cena', 'Igual como el otro, no tenemos horario en cuando tenemos que hacer todo, menos para la actividad', 'Ahora para el desayuno mi amor', 'Desayuno', 'Burnt Crumbs', 'Burnt Crumbs es un restuarante Americano que tiene comida como omeletes, pancakes gordas, galletas, burritos, y sandwich, y mas. Aqui esta el link:', 'Actividad', 'Astra Lumina', 'Astra Lumina es un lugar donde literalmente tienen luzes en un jardin y se mira como que estas en el espacio explorando las estrellas. Toma una hora para caminar todo el parque y es lugar muy bueno para tomar fotos amor. Aqui esta el link para que mires todas las fotos en su pagina:', 'Cena', 'INI Ristorante by Kei Concepts', 'INI Ristorante es un lugar italiano con conceptos Japoneses tambien. Tiene la comida italiana tipica, pero tambien versiones con un toque Japones. Entonces en alguna pasta le ponen un huevo estrellado encima como lo hacen en la sopas en Japon. Como siempre amor, aqui esta el link:'];
@@ -33,11 +80,6 @@ const foodImage = document.createElement('img');
 foodImage.classList.add('food');
 foodImage.src = 'img/datetwofood.jpg';
 window.addEventListener('scroll', function() {
-  if(localStorage.getItem('playAudio') === 'true') {
-    localStorage.removeItem('playAudio');
-    let audio = document.getElementById('myAudio');
-    audio.play().catch(error => console.log('Autoplay blocked', error));
-  }
     if(window.scrollY >= lastScroll + triggerPoint) {
         lastScroll += triggerPoint;
         infoText = document.createElement('p');
