@@ -12,7 +12,7 @@ startButton.classList.add('activate');
 startButton.textContent = 'Click :)';
 
 window.onload = function() {
-    disableScroll();
+    // disableScroll();
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
