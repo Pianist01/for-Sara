@@ -12,6 +12,61 @@ window.onload = function() {
     mainContainer.append(contentContainerOne);
 }
 
+const startButton = document.createElement('button');
+startButton.classList.add('activate');
+startButton.textContent = 'Click :)';
+startButton.style.opacity = '100';
+body.append(startButton);
+
+window.onload = function() {
+    disableScroll();
+    title.style.opacity = '100';
+    contentContainerOne.style.gridRow = '2/16';
+    contentContainerOne.style.height = '100%';
+    mainContainer.append(contentContainerOne);
+}
+
+startButton.addEventListener('click', (e) => {
+  e.preventDefault();
+  startButton.style.opacity = '0';
+  enableScroll();
+  if(localStorage.getItem('playAudio') === 'true') {
+    localStorage.removeItem('playAudio');
+    let audio = document.getElementById('myAudio');
+    audio.play().catch(error => console.log('Autoplay blocked', error));
+  }
+});
+
+function disableScroll() {
+  window.scrollTo(0, 0);
+  body.style.overflow = 'hidden';
+
+  window.addEventListener('scroll', preventScroll);
+  window.addEventListener('wheel', preventScroll, {passive: false});
+  window.addEventListener('touchmove', preventScroll, {passive: false});
+  window.addEventListener('keydown', preventArrowKeys);
+}
+
+function enableScroll() {
+  body.style.overflow = 'auto';
+
+  window.removeEventListener('scroll', preventScroll);
+  window.removeEventListener('wheel', preventScroll);
+  window.removeEventListener('touchmove', preventScroll);
+  window.removeEventListener('keydown', preventArrowKeys);
+}
+
+function preventScroll(event) {
+  event.preventDefault();
+}
+
+function preventArrowKeys(event) {
+  const keys = [37, 38, 39, 40];
+  if(keys.includes(event.keyCode)) {
+    event.preventDefault();
+  }
+}
+
 const dateThreeArray = ['', 'Igual como los otros dos amor, aqui tenemos un dia entero de desayuno, nuestra actividad, y cena', 'No tenemos horario de cuando tenemos que hacer todo ni para la actvidad para esta cita', 'Empezemos con lo primero del dia, el desayuno', 'Desayuno', 'Cafe Cultura', 'Cafe Cultura es un restaurante Mexicano de desayuno. Entonces tenemos lo typical como burritos, chilaquiles, pancakes, french toast, pan dulce, y mas. Es muy rico, yo le daria un 8/10, pero aqui esta el menu para que mires lo que tienen:', 'Actividad', 'K1 Speed', 'Los Gokarts que has querido por mucho tiempo amor. Aqui en Irvine, es muy divertido y van a buena velocidad los Gokarts. Recuerda si escojes esta cita, todavia puedemos hacer las otras, pero si quiero que escojes una. Aqui esta el link para que mires mas de K1 Speed:', 'Cena', `BJ's Restaurant & Brewhouse`, `BJ's es un restaurante con comida Americana. Hamburguesas, Boneless wings, tacos, pasta, pizza, y tambien tiene una galleta que es super ricisimo amor. Amo esa galleta. Bueno, aqui esta el link para que mires mas fotos de ahi: `];
 
 const dateOneLink = document.createElement('p');
