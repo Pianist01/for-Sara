@@ -1,5 +1,7 @@
 console.log('Script is working');
 
+const body = document.querySelector('body');
+
 const title = document.querySelector('h1');
 const mainContainer = document.querySelector('main');
 const contentContainerOne = document.createElement('div');
