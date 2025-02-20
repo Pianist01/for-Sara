@@ -7,11 +7,6 @@ contentContainerOne.classList.add('info-one');
 const body = document.querySelector('body');
 
 window.onload = function() {
-  if(localStorage.getItem('playAudio') === 'true') {
-    localStorage.removeItem('playAudio');
-    let audio = document.getElementById('myAudio');
-    audio.play();
-  }
     title.style.opacity = '100';
     contentContainerOne.style.gridRow = '2/16';
     contentContainerOne.style.height = '100%';
@@ -38,6 +33,11 @@ const foodImage = document.createElement('img');
 foodImage.classList.add('food');
 foodImage.src = 'img/datetwofood.jpg';
 window.addEventListener('scroll', function() {
+  if(localStorage.getItem('playAudio') === 'true') {
+    localStorage.removeItem('playAudio');
+    let audio = document.getElementById('myAudio');
+    audio.play().catch(error => console.log('Autoplay blocked', error));
+  }
     if(window.scrollY >= lastScroll + triggerPoint) {
         lastScroll += triggerPoint;
         infoText = document.createElement('p');
