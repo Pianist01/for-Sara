@@ -29,5 +29,6 @@ buttonTwo.addEventListener('click', (e) => {
 const buttonThree = document.querySelector('.btn-three');
 buttonThree.addEventListener('click', (e) => {
     e.preventDefault();
+    localStorage.setItem('playAudio', 'true');
     window.location.href = 'racing.html';
 });
