@@ -4,144 +4,422 @@
   1. Use a more-intuitive box-sizing model.
 */
 *, *::before, *::after {
-    box-sizing: border-box;
-  }
-  /*
-    2. Remove default margin
-  */
-  * {
-    margin: 0;
-  }
-  /*
-    Typographic tweaks!
-    3. Add accessible line-height
-    4. Improve text rendering
-  */
-  body {
-    line-height: 1.5;
-    -webkit-font-smoothing: antialiased;
-  }
-  /*
-    5. Improve media defaults
-  */
-  img, picture, video, canvas, svg {
-    display: block;
-    max-width: 100%;
-  }
-  /*
-    6. Remove built-in form typography styles
-  */
-  input, button, textarea, select {
-    font: inherit;
-  }
-  /*
-    7. Avoid text overflows
-  */
-  p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-  }
-  /*
-    8. Create a root stacking context
-  */
-  #root, #__next {
-    isolation: isolate;
-  }
-  
-  /* RESET END */
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+/* RESET END */
 
 body {
-    height: 10000px;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(8, .09fr);
+  height: 10000px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, .09fr);
 }
 
 main {
-  height: 100%;
-  grid-row: 2/16;
+height: 100%;
+grid-row: 2/16;
 }
 
 .head-container {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-row: 1/2;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1/2;
 }
 
 .lights {
-    height: 100%;
+  height: 100%;
 }
 
 h1 {
-    position: absolute;
-    color: white;
-    opacity: 0;
-    transition: opacity 1s linear;
-    animation: showUp 2s 1;
-    text-decoration: none;
+  position: absolute;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: showUp 2s 1;
+  text-decoration: none;
 }
-    
+  
 @keyframes showUp {
-    from {
-      transform: translateY(100px);
-    }
-    
-    to {
-      transform: translateY(0px);
-    }
+  from {
+    transform: translateY(100px);
+  }
+  
+  to {
+    transform: translateY(0px);
+  }
 }
 
 .info-one {
-  background: linear-gradient(109.6deg, rgb(43, 1, 91) 13.4%, rgb(122, 2, 54) 100.2%);
-  opacity: 0;
-  transition: opacity 1s linear;
-  object-fit: cover;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(12, .09fr);
-  }
+background: linear-gradient(110.6deg, rgb(156, 116, 129) -18.3%, rgb(67, 54, 74) 16.4%, rgb(47, 48, 67) 68.2%, rgb(27, 23, 36) 99.1%);
+opacity: 0;
+transition: opacity 1s linear;
+object-fit: cover;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(12, .09fr);
+}
 
 .info-text1 {
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: white;
+grid-row: 1/2;
+grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
+}
+
+.info-text2 {
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: white;
+grid-row: 2/3;
+display: flex;
+align-items: center;
+text-align: center;
+grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
+}
+
+@keyframes textAppear {
+  from {
+    transform: translateY(100px);
+  }
+  
+  to {
+    transform: translateY(0px);
+  }
+  }
+
+  .info-text3 {
+    opacity: 0;
+    transition: opacity 1s linear;
+    animation: textAppear 1s 1;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    grid-row: 3/4;
+    grid-column: 1/2;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    }
+
+    .info-text4 {
+      opacity: 0;
+      transition: opacity 1s linear;
+      animation: textAppear 1s 1;
+      align-self: center;
+      justify-self: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-size: 3rem;
+      grid-row: 4/5;
+      grid-column: 1/2;
+      }
+
+.info-text5 {
   opacity: 0;
   transition: opacity 1s linear;
   animation: textAppear 1s 1;
   align-self: center;
   justify-self: center;
-  color: white;
-  grid-row: 1/2;
+  color: #429e9d;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 30%;
+  grid-row: 5/6;
   grid-column: 1/2;
+}
+
+.food-box {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 5/6;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.food-box.visible {
+  opacity: 1;
+}
+
+.food {
+  height: 100%;
+  width: 100%;
+}
+
+.info-text6 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3rem;
+  grid-row: 6/7;
+  grid-column: 1/2;
+}
+
+.food-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  margin-top: 60%;
+  grid-row: 6/7;
+  grid-column: 1/2;
+  color: #429e9d;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.food-link.visible {
+  opacity: 1;
+}
+
+.info-text7 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 3rem;
+  grid-row: 7/8;
+  grid-column: 1/2;
+}
+
+.activity-imgBox {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 8/9;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.activity-imgBox.visible {
+  opacity: 1;
+}
+
+.activity-image {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text8 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  grid-row: 8/9;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 1.5rem;
+  margin-top: 30%;
+}
+
+.info-text9 {
+  opacity: 0;
+  transition: opacity 3s linear;
+  animation: textAppear 1s 1;
+  grid-row: 9/10;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
   text-align: center;
 }
 
-.info-text2 {
+.activity-link {
   opacity: 0;
-  transition: opacity 1s linear;
+  transition: opacity 2s linear;
   animation: textAppear 1s 1;
   align-self: center;
   justify-self: center;
-  color: white;
-  grid-row: 2/3;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  margin-top: 60%;
+  grid-row: 9/10;
   grid-column: 1/2;
+  color: #429e9d;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.activity-link.visible {
+  opacity: 1;
+}
+
+.info-text10 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+  grid-row: 10/11;
+  grid-column: 1/2;
+  color: #429e9d;
+}
+
+.dinner-box {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 11/12;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.dinner-box.visible {
+  opacity: 1;
+}
+
+.dinner-image {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text11 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  grid-row: 11/12;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
+  font-size: 1.5rem;
+  margin-top: 30%;
+}
+
+.info-text12 {
+  opacity: 0;
+  transition: opacity 3s linear;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: #429e9d;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
   text-align: center;
-  }
+}
 
-  @keyframes textAppear {
-    from {
-      transform: translateY(100px);
-    }
-    
-    to {
-      transform: translateY(0px);
-    }
-    }
+.dinner-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  margin-top: 60%;
+  color: #429e9d;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.dinner-link.visible {
+  opacity: 1;
+}
+
+.return-btn {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  height: 45px;
+  width: 90px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 30%;
+  border-radius: 15px;
+}
+
+.return-btn.visible {
+  opacity: 1;
+}
