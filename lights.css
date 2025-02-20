@@ -134,6 +134,8 @@ font-size: 1.3rem;
 display: flex;
 align-items: center;
 text-align: center;
+padding-left: 20px;
+padding-right: 20px;
 }
 
 @keyframes textAppear {
@@ -185,7 +187,7 @@ text-align: center;
   animation: textAppear 1s 1;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   display: flex;
   align-items: center;
   text-align: center;
@@ -221,13 +223,15 @@ text-align: center;
   animation: textAppear 1s 1;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   display: flex;
   align-items: center;
   text-align: center;
   font-size: 1.3rem;
   grid-row: 6/7;
   grid-column: 1/2;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .food-link {
@@ -239,7 +243,7 @@ text-align: center;
   margin-top: 60%;
   grid-row: 6/7;
   grid-column: 1/2;
-  color: #429e9d;
+  color: white;
   font-size: 1.2rem;
   text-decoration: underline;
 }
@@ -254,7 +258,7 @@ text-align: center;
   animation: textAppear 1s 1;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   font-size: 3rem;
   grid-row: 7/8;
   grid-column: 1/2;
@@ -288,7 +292,7 @@ text-align: center;
   grid-column: 1/2;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   font-size: 1.5rem;
   margin-top: 30%;
 }
@@ -301,11 +305,13 @@ text-align: center;
   grid-column: 1/2;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .activity-link {
@@ -314,10 +320,10 @@ text-align: center;
   animation: textAppear 1s 1;
   align-self: center;
   justify-self: center;
-  margin-top: 60%;
+  margin-top: 80%;
   grid-row: 9/10;
   grid-column: 1/2;
-  color: #429e9d;
+  color: white;
   font-size: 1.2rem;
   text-decoration: underline;
 }
@@ -335,7 +341,7 @@ text-align: center;
   font-size: 3rem;
   grid-row: 10/11;
   grid-column: 1/2;
-  color: #429e9d;
+  color: white;
 }
 
 .dinner-box {
@@ -366,7 +372,7 @@ text-align: center;
   grid-column: 1/2;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   font-size: 1.5rem;
   margin-top: 30%;
 }
@@ -378,11 +384,13 @@ text-align: center;
   grid-column: 1/2;
   align-self: center;
   justify-self: center;
-  color: #429e9d;
+  color: white;
   font-size: 1.3rem;
   display: flex;
   align-items: center;
   text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
 .dinner-link {
@@ -393,8 +401,8 @@ text-align: center;
   justify-self: center;
   grid-row: 12/13;
   grid-column: 1/2;
-  margin-top: 60%;
-  color: #429e9d;
+  margin-top: 80%;
+  color: white;
   font-size: 1.2rem;
   text-decoration: underline;
 }
@@ -416,7 +424,7 @@ text-align: center;
   grid-column: 1/2;
   align-self: end;
   justify-self: center;
-  margin-bottom: 30%;
+  margin-bottom: 20%;
   border-radius: 15px;
 }
 

@@ -14,8 +14,8 @@ let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
 let increasing = true;
-let duration = 3800;
-const interval = 18;
+let duration = 3900;
+const interval = 120;
 const step = interval / duration;
 
 let boxShadowSize = 5;
@@ -104,22 +104,24 @@ button.addEventListener('click', (e) => {
     }, 2000);
 });
 
-const nextPageArray = ['QUEEEEE PORQUE ESCOJISTE NO???!!!!', 'NO ME QUIERES???', 'OK, YA HICISTE TU DESICION!!!!!', 'BYE!!!'];
+const nextPageArray = ['QUEEEEE PORQUE ESCOJISTE NO???!!!!', 'NO ME AMAS???', 'OK, YA HICISTE TU DESICION!!!!!', 'BYE!!!'];
+
+const yes = document.createElement('button');
+
+const no = document.createElement('button');
 
 function askQuestion() {
     let opacity = 0;
     let maxOpacity = 100;
     const question = document.createElement('p');
     question.classList.add('question');
-    question.textContent = 'Will You Be My Valentine?';
+    question.textContent = 'Me amas?';
 
     
     
-    const yes = document.createElement('button');
     yes.classList.add('yes-button');
     yes.textContent = 'Si';
 
-    const no = document.createElement('button');
     no.classList.add('no-button');
     no.textContent = 'No';
 

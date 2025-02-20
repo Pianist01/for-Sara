@@ -91,7 +91,7 @@ contentContainerOne.append(activityImageBox);
 
 const activityOneLink = document.createElement('p');
 activityOneLink.classList.add('activity-link');
-activityOneLink.textContent = 'La pagina del masaje para que mires amor :)';
+activityOneLink.textContent = 'La pagina de las luzes amor :)';
 contentContainerOne.append(activityOneLink);
 
 const activityObserver = new IntersectionObserver((entries, observer) => {
@@ -131,7 +131,7 @@ contentContainerOne.append(dinnerBox);
 
 const dinnerLink = document.createElement('p');
 dinnerLink.classList.add('dinner-link');
-dinnerLink.textContent = 'Menu para mi princesa :)';
+dinnerLink.textContent = 'El menu :)';
 contentContainerOne.append(dinnerLink);
 
 const returnButton = document.createElement('button');

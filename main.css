@@ -90,6 +90,12 @@ h2 {
   transition: opacity 1s linear;
 }
 
+p {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
 .first-page {
   color: white;
   justify-self: center;

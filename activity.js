@@ -21,3 +21,9 @@ buttonTwo.addEventListener('click', (e) => {
     e.preventDefault();
     window.location.href = 'lights.html';
 });
+
+const buttonThree = document.querySelector('.btn-three');
+buttonThree.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.location.href = 'racing.html';
+});
