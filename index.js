@@ -7,6 +7,8 @@ container.style.display = 'none';
 
 const phraseOne = document.querySelector('p');
 
+container.append(phraseOne);
+
 const button = document.querySelector('button');
 
 const startButton = document.createElement('button');
@@ -23,9 +25,11 @@ let index = 0;
 let secondsPassed = 0;
 let opacity = 0;
 let increasing = true;
-let duration = 4200;
-const interval = 10;
-const step = interval / duration;
+let duration = 3900;
+let fadeOutTime = duration / 2;
+let fadeInTime = duration / 2;
+const interval = 12;
+const step = interval / (duration / 2);
 
 let boxShadowSize = 5;
 let growing = true;
@@ -40,21 +44,31 @@ button.disabled = true;
 
 let startUp = function() {
     let newSentence = setInterval(() => {
-        index = (index + 1) % phraseArray.length;
-        phraseOne.textContent = phraseArray[index];
+        phraseOne.style.transition = `opacity ${fadeOutTime}ms ease`;
+        phraseOne.style.opacity = 0;
+
+        setTimeout(() => {
+            index = (index + 1) % phraseArray.length;
+            phraseOne.textContent = phraseArray[index];
+
+            phraseOne.style.transition = `opacity ${fadeInTime}ms ease`;
+            phraseOne.style.opacity = 1;
+        }, fadeOutTime)
         console.log(phraseOne);
-        container.append(phraseOne);
-    }, 8850);
+    }, 7450);
 
     btnShadow();
 
     setTimeout(() => {
     clearInterval(newSentence);
-    button.disabled = false;
     phraseOne.style.display = 'none';
     console.log('Time is up');
 }, 88000);
 }
+
+setTimeout(() => {
+    button.disabled = false;
+}, 80000);
 
 startButton.addEventListener('click', (e) => {
     e.preventDefault();
@@ -86,25 +100,6 @@ function btnShadow() {
         button.style.boxShadow = `0 0 ${boxShadowSize}px 0`;
     }, 100);
 }
-
-function fadeEffect() {
-    if(increasing) {
-        opacity += step;
-        if(opacity >= 1) {
-            opacity = 1;
-            increasing = false;
-        }
-    } else {
-        opacity -= step;
-        if(opacity <= 0) {
-            opacity = 0;
-            increasing = true;
-        }
-    }
-    phraseOne.style.opacity = opacity;
-}
-
-setInterval(fadeEffect, interval);
 
 
 button.addEventListener('click', (e) => {
