@@ -1,233 +1,454 @@
-console.log('Script is working');
+/* RESET */
 
-const body = document.querySelector('body');
-
-const title = document.querySelector('h1');
-const mainContainer = document.querySelector('main');
-const contentContainerOne = document.createElement('div');
-contentContainerOne.classList.add('info-one');
-
-const startButton = document.createElement('button');
-startButton.classList.add('activate');
-startButton.textContent = 'Click :)';
-startButton.style.opacity = '100';
-body.append(startButton);
-
-window.onload = function() {
-    disableScroll();
-    title.style.opacity = '100';
-    contentContainerOne.style.gridRow = '2/16';
-    contentContainerOne.style.height = '100%';
-    mainContainer.append(contentContainerOne);
+/*
+  1. Use a more-intuitive box-sizing model.
+*/
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/*
+  2. Remove default margin
+*/
+* {
+  margin: 0;
+}
+/*
+  Typographic tweaks!
+  3. Add accessible line-height
+  4. Improve text rendering
+*/
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+/*
+  5. Improve media defaults
+*/
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+/*
+  6. Remove built-in form typography styles
+*/
+input, button, textarea, select {
+  font: inherit;
+}
+/*
+  7. Avoid text overflows
+*/
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+/*
+  8. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
 }
 
-startButton.addEventListener('click', (e) => {
-  e.preventDefault();
-  startButton.style.opacity = '0';
-  enableScroll();
-  if(localStorage.getItem('playAudio') === 'true') {
-    localStorage.removeItem('playAudio');
-    let audio = document.getElementById('myAudio');
-    audio.play().catch(error => console.log('Autoplay blocked', error));
+/* RESET END */
+
+body {
+  height: 10000px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(8, .09fr);
+}
+
+main {
+height: 100%;
+grid-row: 2/16;
+}
+
+.activate {
+  /* opacity: 0;
+  transition: opacity 2s linear; */
+  grid-row: 1/2;
+  grid-column: 1/2;
+  justify-self: center;
+  position: absolute;
+  margin-top: 130%;
+  margin-left: 43%;
+  height: 45px;
+  width: 90px;
+  background: none;
+  color: white;
+  border: 2px solid white;
+  border-radius: 15px;
+}
+
+.head-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: 1/2;
+}
+
+.street {
+  height: 100%;
+}
+
+h1 {
+  position: absolute;
+  color: white;
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: showUp 2s 1;
+  text-decoration: none;
+}
+  
+@keyframes showUp {
+  from {
+    transform: translateY(100px);
   }
-});
-
-function disableScroll() {
-  window.scrollTo(0, 0);
-  body.style.overflow = 'hidden';
-
-  window.addEventListener('scroll', preventScroll);
-  window.addEventListener('wheel', preventScroll, {passive: false});
-  window.addEventListener('touchmove', preventScroll, {passive: false});
-  window.addEventListener('keydown', preventArrowKeys);
-}
-
-function enableScroll() {
-  body.style.overflow = 'auto';
-
-  window.removeEventListener('scroll', preventScroll);
-  window.removeEventListener('wheel', preventScroll);
-  window.removeEventListener('touchmove', preventScroll);
-  window.removeEventListener('keydown', preventArrowKeys);
-}
-
-function preventScroll(event) {
-  event.preventDefault();
-}
-
-function preventArrowKeys(event) {
-  const keys = [37, 38, 39, 40];
-  if(keys.includes(event.keyCode)) {
-    event.preventDefault();
+  
+  to {
+    transform: translateY(0px);
   }
 }
 
-const dateThreeArray = ['', 'Igual como los otros dos amor, aqui tenemos un dia entero de desayuno, nuestra actividad, y cena', 'No tenemos horario de cuando tenemos que hacer todo ni para la actvidad para esta cita', 'Empezemos con lo primero del dia, el desayuno', 'Desayuno', 'Cafe Cultura', 'Cafe Cultura es un restaurante Mexicano de desayuno. Entonces tenemos lo typical como burritos, chilaquiles, pancakes, french toast, pan dulce, y mas. Es muy rico, yo le daria un 8/10, pero aqui esta el menu para que mires lo que tienen:', 'Actividad', 'K1 Speed', 'Los Gokarts que has querido por mucho tiempo amor. Aqui en Irvine, es muy divertido y van a buena velocidad los Gokarts. Recuerda si escojes esta cita, todavia puedemos hacer las otras, pero si quiero que escojes una. Aqui esta el link para que mires mas de K1 Speed:', 'Cena', `BJ's Restaurant & Brewhouse`, `BJ's es un restaurante con comida Americana. Hamburguesas, Boneless wings, tacos, pasta, pizza, y tambien tiene una galleta que es super ricisimo amor. Amo esa galleta. Bueno, aqui esta el link para que mires mas fotos de ahi: `];
+.info-one {
+background: radial-gradient(circle at 10% 20%, rgb(69, 86, 102) 0%, rgb(34, 34, 34) 90%);
+opacity: 0;
+transition: opacity 1s linear;
+object-fit: cover;
+display: grid;
+grid-template-columns: 1fr;
+grid-template-rows: repeat(12, .09fr);
+}
 
-const dateOneLink = document.createElement('p');
-dateOneLink.classList.add('food-link');
-dateOneLink.textContent = 'El menu amor :)';
-contentContainerOne.append(dateOneLink);
+.info-text1 {
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: white;
+grid-row: 1/2;
+grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
+padding-left: 20px;
+padding-right: 20px;
+}
 
-let index = 0;
-let infoText;
-let textNumber = 0;
+.info-text2 {
+opacity: 0;
+transition: opacity 1s linear;
+animation: textAppear 1s 1;
+align-self: center;
+justify-self: center;
+color: white;
+grid-row: 2/3;
+display: flex;
+align-items: center;
+text-align: center;
+grid-column: 1/2;
+font-size: 1.3rem;
+display: flex;
+align-items: center;
+text-align: center;
+padding-left: 20px;
+padding-right: 20px;
+}
 
-let lastScroll = 0;
-let triggerPoint = 700;
-let opacity = 0;
-let maxOpacity = 100;
-const foodContainer = document.createElement('div');
-const foodImage = document.createElement('img');
-foodImage.classList.add('food');
-foodImage.src = 'img/cafecultura.jpg';
-window.addEventListener('scroll', function() {
-    if(window.scrollY >= lastScroll + triggerPoint) {
-        lastScroll += triggerPoint;
-        infoText = document.createElement('p');
-        infoText.classList.add(`info-text${textNumber += 1}`);
-        infoText.textContent = dateThreeArray[index += 1];
-        infoText.style.opacity = '100';
-        contentContainerOne.style.opacity = '100';
-        contentContainerOne.append(infoText);
-        console.log(infoText);
-        if(window.scrollY >= 3500) {
-            foodContainer.classList.add('food-box');
+@keyframes textAppear {
+  from {
+    transform: translateY(100px);
+  }
+  
+  to {
+    transform: translateY(0px);
+  }
+  }
 
-            foodContainer.append(foodImage);
-            contentContainerOne.append(foodContainer);
-        }
+  .info-text3 {
+    opacity: 0;
+    transition: opacity 1s linear;
+    animation: textAppear 1s 1;
+    align-self: center;
+    justify-self: center;
+    color: white;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    grid-row: 3/4;
+    grid-column: 1/2;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding-left: 20px;
+    padding-right: 20px;
     }
-});
 
-const observer = new IntersectionObserver((entries, observer) => {
-  if(entries[0].isIntersecting) {
-    foodContainer.classList.add('visible');
-    observer.disconnect();
-  }
-}, {threshold: 0.1, 
-    rootMargin: '200px'
-});
+    .info-text4 {
+      opacity: 0;
+      transition: opacity 1s linear;
+      animation: textAppear 1s 1;
+      align-self: center;
+      justify-self: center;
+      color: white;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      font-size: 3rem;
+      grid-row: 4/5;
+      grid-column: 1/2;
+      }
 
-observer.observe(foodContainer);
-
-const foodObserver = new IntersectionObserver((entries, observer) => {
-  if (entries[0].isIntersecting) {
-    console.log("Element is visible!");
-    
-    dateOneLink.classList.add('visible');
-    
-    observer.disconnect(); 
-  }
-}, {
-  rootMargin: "100px",
-  threshold: 0.1
-});
-
-foodObserver.observe(dateOneLink);
-
-dateOneLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.open('https://www.yelp.com/biz/cafe-cultura-santa-ana-2?osq=Cafe+Cultura', '_blank');
-});
-
-const activityImageBox = document.createElement('div');
-activityImageBox.classList.add('activity-imgBox');
-const activityImage = document.createElement('img');
-activityImage.src = 'img/gokarts.jpg';
-activityImage.classList.add('activity-image')
-activityImageBox.append(activityImage);
-contentContainerOne.append(activityImageBox);
-
-const activityOneLink = document.createElement('p');
-activityOneLink.classList.add('activity-link');
-activityOneLink.textContent = 'La pagina para que mires amor :)';
-contentContainerOne.append(activityOneLink);
-
-const activityObserver = new IntersectionObserver((entries, observer) => {
-  if(entries[0].isIntersecting) {
-    activityImageBox.classList.add('visible');
-    observer.disconnect();
-  }
-}, {
-  threshold: 0.1
-});
-
-activityObserver.observe(activityImageBox);
-
-const actLinkObserver = new IntersectionObserver((entries, observer) => {
-  if(entries[0].isIntersecting) {
-    activityOneLink.classList.add('visible');
-    observer.disconnect();
-  }
-  }, {
-    threshold: 0.1
-});
-
-actLinkObserver.observe(activityOneLink);
-
-activityOneLink.addEventListener('click', (e) => {
-  e.preventDefault();
-  window.open('https://www.k1speed.com/irvine-location.html', '_blank');
-});
-
-const dinnerBox = document.createElement('div');
-dinnerBox.classList.add('dinner-box');
-const dinnerImage = document.createElement('img');
-dinnerImage.classList.add('dinner-image');
-dinnerImage.src = 'img/bjs.jpg';
-dinnerBox.append(dinnerImage);
-contentContainerOne.append(dinnerBox);
-
-const dinnerLink = document.createElement('p');
-dinnerLink.classList.add('dinner-link');
-dinnerLink.textContent = 'El menu baby :)';
-contentContainerOne.append(dinnerLink);
-
-const returnButton = document.createElement('button');
-returnButton.classList.add('return-btn');
-returnButton.textContent = 'Regresar';
-contentContainerOne.append(returnButton);
-
-const dinnerObserver = new IntersectionObserver((entries, observer) => {
-if(entries[0].isIntersecting) {
-  dinnerBox.classList.add('visible');
-  observer.disconnect();
+.info-text5 {
+  opacity: 0;
+  transition: opacity 1s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.5rem;
+  margin-top: 30%;
+  grid-row: 5/6;
+  grid-column: 1/2;
 }
-}, {
-  threshold: 0.1
-});
 
-dinnerObserver.observe(dinnerBox);
-
-const dinnerLinkObserver =  new IntersectionObserver((entries, observer) => {
-if(entries[0].isIntersecting) {
-  dinnerLink.classList.add('visible');
-  observer.disconnect();
+.food-box {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 5/6;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
 }
-}, {
-  threshold: 0.1
-});
 
-dinnerLinkObserver.observe(dinnerLink);
-
-const btnObserver = new IntersectionObserver((entries, observer) => {
-if(entries[0].isIntersecting) {
-  returnButton.classList.add('visible');
-  observer.disconnect()
+.food-box.visible {
+  opacity: 1;
 }
-}, {
-  threshold: 0.1
-});
 
-btnObserver.observe(returnButton);
+.food {
+  height: 100%;
+  width: 100%;
+}
 
-dinnerLink.addEventListener('click', (e) => {
-e.preventDefault();
-window.open('https://www.bjsrestaurants.com/locations/ca/irvine?utm_source=google&utm_medium=organic&utm_campaign=google_my_business', '_blank');
-});
+.info-text6 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 1.3rem;
+  grid-row: 6/7;
+  grid-column: 1/2;
+  padding-left: 20px;
+  padding-right: 20px;
+}
 
-returnButton.addEventListener('click', (e) => {
-e.preventDefault();
-window.location.href = 'activities.html';
-});
+.food-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  margin-top: 60%;
+  grid-row: 6/7;
+  grid-column: 1/2;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.food-link.visible {
+  opacity: 1;
+}
+
+.info-text7 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 3rem;
+  grid-row: 7/8;
+  grid-column: 1/2;
+}
+
+.activity-imgBox {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 8/9;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.activity-imgBox.visible {
+  opacity: 1;
+}
+
+.activity-image {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text8 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  grid-row: 8/9;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 30%;
+}
+
+.info-text9 {
+  opacity: 0;
+  transition: opacity 3s linear;
+  animation: textAppear 1s 1;
+  grid-row: 9/10;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.activity-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  margin-top: 80%;
+  grid-row: 9/10;
+  grid-column: 1/2;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.activity-link.visible {
+  opacity: 1;
+}
+
+.info-text10 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  font-size: 3rem;
+  grid-row: 10/11;
+  grid-column: 1/2;
+  color: white;
+}
+
+.dinner-box {
+  opacity: 0;
+  transition: opacity 2s linear;
+  grid-row: 11/12;
+  grid-column: 1/2;
+  height: 300px;
+  width: 300px;
+  justify-self: center;
+  margin-top: 20%;
+}
+
+.dinner-box.visible {
+  opacity: 1;
+}
+
+.dinner-image {
+  height: 300px;
+  width: 300px;
+}
+
+.info-text11 {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  grid-row: 11/12;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 1.5rem;
+  margin-top: 30%;
+}
+
+.info-text12 {
+  opacity: 0;
+  transition: opacity 3s linear;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  align-self: center;
+  justify-self: center;
+  color: white;
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.dinner-link {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  align-self: center;
+  justify-self: center;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  margin-top: 60%;
+  color: white;
+  font-size: 1.2rem;
+  text-decoration: underline;
+}
+
+.dinner-link.visible {
+  opacity: 1;
+}
+
+.return-btn {
+  opacity: 0;
+  transition: opacity 2s linear;
+  animation: textAppear 1s 1;
+  height: 45px;
+  width: 90px;
+  background: none;
+  border: 2px solid white;
+  color: white;
+  grid-row: 12/13;
+  grid-column: 1/2;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: 30%;
+  border-radius: 15px;
+}
+
+.return-btn.visible {
+  opacity: 1;
+}
